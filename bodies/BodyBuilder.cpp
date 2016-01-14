@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "BodyBuilder.h"
 
-CBody * CBodyBuilder::CreateFromStream(std::istream & in)
+std::shared_ptr<CBody> CBodyBuilder::CreateFromStream(std::istream & in)
 {
+    std::shared_ptr<CBody> body = std::shared_ptr<CBody>();
     std::string stringLine;
 
     if (getline(in, stringLine))
@@ -15,57 +16,62 @@ CBody * CBodyBuilder::CreateFromStream(std::istream & in)
 
             if (bodyType == "sphere")
             {
-                return CreateSphere(stringStream);
+                body = CreateSphere(stringStream);
             }
             else if (bodyType == "cone")
             {
-                return CreateCone(stringStream);
+                body = CreateCone(stringStream);
             }
         }
-    }
-    return nullptr;
-}
-
-CBody * CBodyBuilder::CreateSphere(std::istringstream & in)
-{
-    CBody * body;
-    std::string word;
-    try
-    {
-        in >> word;
-        double density = stod(word);
-
-        in >> word;
-        double radius = stod(word);
-
-        body =  new CSphere(density, radius);
-    }
-    catch (std::invalid_argument)
-    {
-        body = nullptr;
     }
     return body;
 }
 
-CBody * CBodyBuilder::CreateCone(std::istringstream & in)
+std::shared_ptr<CBody> CBodyBuilder::CreateSphere(std::istringstream & in)
 {
-    CBody * body;
+    std::shared_ptr<CBody> body;
     std::string word;
     try
     {
+        word = "";
         in >> word;
         double density = stod(word);
 
+        word = "";
         in >> word;
         double radius = stod(word);
 
-        in >> word;
-        double height = stod(word);
-        body = new CCone(density, radius, height);
+        body = std::shared_ptr<CBody>(new CSphere(density, radius));
     }
     catch (std::invalid_argument)
     {
-        body = nullptr;
+        body = std::shared_ptr<CBody>();
+    }
+    return body;
+}
+
+std::shared_ptr<CBody> CBodyBuilder::CreateCone(std::istringstream & in)
+{
+    std::shared_ptr<CBody> body;
+    std::string word;
+    try
+    {
+        word = "";
+        in >> word;
+        double density = stod(word);
+
+        word = "";
+        in >> word;
+        double radius = stod(word);
+
+        word = "";
+        in >> word;
+        double height = stod(word);
+        body = std::shared_ptr<CBody>(new CCone(density, radius, height));
+    }
+    catch (std::invalid_argument)
+    {
+        body = std::shared_ptr<CBody>();
     }
     return body;
 }

@@ -10,10 +10,9 @@ int _tmain(int argc, _TCHAR* argv[])
     CBodyBuilder builder = CBodyBuilder();
     while (std::cin)
     {
-        auto bodyPtr = builder.CreateFromStream(std::cin);
-        if (bodyPtr)
+        std::shared_ptr<CBody> body = builder.CreateFromStream(std::cin);
+        if (body.use_count())
         {
-            auto body = std::shared_ptr<CBody>(bodyPtr);
             std::cout << body->ToString() << std::endl;
         }
     }

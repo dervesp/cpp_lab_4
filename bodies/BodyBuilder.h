@@ -6,9 +6,9 @@
 class CBodyBuilder
 {
 public:
-    CBody * CreateFromStream(std::istream & in);
+    std::shared_ptr<CBody> CreateFromStream(std::istream & in);
 private:
-    CBody * CreateSphere(std::istringstream & in);
-    CBody * CreateCone(std::istringstream & in);
+    std::shared_ptr<CBody> CreateSphere(std::istringstream & in);
+    std::shared_ptr<CBody> CreateCone(std::istringstream & in);
 };
 
