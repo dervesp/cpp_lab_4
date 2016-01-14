@@ -8,9 +8,10 @@
 struct Cone_
 {
 	const double expectedRadius = 10.1;
+	const double expectedHeight = 11.1;
 	const CCone cone;
 	Cone_()
-		: cone(expectedRadius)
+		: cone(expectedRadius, expectedHeight)
 	{}
 };
 // Конус
@@ -24,5 +25,10 @@ BOOST_FIXTURE_TEST_SUITE(Cone, Cone_)
 	BOOST_AUTO_TEST_CASE(has_a_radius)
 	{
 		BOOST_CHECK_EQUAL(cone.GetRadius(), expectedRadius);
+	}
+	// имеет высоту
+	BOOST_AUTO_TEST_CASE(has_a_height)
+	{
+		BOOST_CHECK_EQUAL(cone.GetHeight(), expectedHeight);
 	}
 BOOST_AUTO_TEST_SUITE_END()
