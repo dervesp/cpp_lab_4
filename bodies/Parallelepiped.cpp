@@ -26,7 +26,7 @@ double CParallelepiped::GetHeight() const
 
 double CParallelepiped::GetVolume() const
 {
-	return 0;
+	return m_length * m_width * m_height;
 }
 
 void CParallelepiped::AppendProperties(std::ostream & strm) const
