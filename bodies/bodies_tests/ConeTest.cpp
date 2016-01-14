@@ -7,14 +7,10 @@
 
 struct Cone_
 {
-	const double expectedLength = 1.1;
-	const double expectedWidth = 10.1;
-	const double expectedHeight = 20.1;
-	const double expectedDensity = 8.8;
-	const double expectedVolume = 223.311;
+	const double expectedRadius = 10.1;
 	const CCone cone;
 	Cone_()
-		: cone()
+		: cone(expectedRadius)
 	{}
 };
 // Конус
@@ -23,5 +19,10 @@ BOOST_FIXTURE_TEST_SUITE(Cone, Cone_)
 	BOOST_AUTO_TEST_CASE(is_a_body)
 	{
 		BOOST_CHECK(static_cast<const CBody*>(&cone));
+	}
+	// имеет радиус
+	BOOST_AUTO_TEST_CASE(has_a_radius)
+	{
+		BOOST_CHECK_EQUAL(cone.GetRadius(), expectedRadius);
 	}
 BOOST_AUTO_TEST_SUITE_END()
