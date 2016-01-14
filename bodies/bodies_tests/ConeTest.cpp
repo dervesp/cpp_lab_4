@@ -48,4 +48,16 @@ BOOST_FIXTURE_TEST_SUITE(Cone, Cone_)
 	{
 		BOOST_CHECK_CLOSE_FRACTION(static_cast<const CBody &>(cone).GetMass(), expectedVolume * expectedDensity, 1e-7);
 	}
+	// имеет строковое представление
+	BOOST_AUTO_TEST_CASE(can_be_converted_to_string)
+	{
+		const auto expectedString = R"(Cone:
+	density = 8.8
+	volume = 1185.753306
+	mass = 10434.6291
+	radius = 10.1
+	height = 11.1
+)";
+		BOOST_CHECK_EQUAL(static_cast<const CBody &>(cone).ToString(), expectedString);
+	}
 BOOST_AUTO_TEST_SUITE_END()
