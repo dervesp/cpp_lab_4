@@ -10,9 +10,10 @@ struct Parallelepiped_
 	const double expectedLength = 1.1;
 	const double expectedWidth = 10.1;
 	const double expectedHeight = 20.1;
+	const double expectedDensity = 8.8;
 	const CParallelepiped parallelepiped;
 	Parallelepiped_()
-		: parallelepiped(expectedLength, expectedWidth, expectedHeight)
+		: parallelepiped(expectedDensity, expectedLength, expectedWidth, expectedHeight)
 	{}
 };
 // Параллелепипед
@@ -36,5 +37,10 @@ BOOST_FIXTURE_TEST_SUITE(Parallelepiped, Parallelepiped_)
 	BOOST_AUTO_TEST_CASE(has_a_height)
 	{
 		BOOST_CHECK_EQUAL(parallelepiped.GetHeight(), expectedHeight);
+	}
+	// имеет плотность
+	BOOST_AUTO_TEST_CASE(has_a_density)
+	{
+		BOOST_CHECK_EQUAL(static_cast<const CBody &>(parallelepiped).GetDensity(), expectedDensity);
 	}
 BOOST_AUTO_TEST_SUITE_END()

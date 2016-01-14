@@ -5,7 +5,7 @@ class CParallelepiped final :
 	public CBody
 {
 public:
-	CParallelepiped(double length, double width, double height);
+	CParallelepiped(double density, double length, double width, double height);
 
 	double GetLength() const;
 	double GetWidth() const;
