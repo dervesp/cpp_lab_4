@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "Cone.h"
 
-CCone::CCone(double radius, double height)
-	: CBody("Cone", 0),
+CCone::CCone(double density, double radius, double height)
+	: CBody("Cone", density),
 	m_radius(radius),
 	m_height(height)
 {

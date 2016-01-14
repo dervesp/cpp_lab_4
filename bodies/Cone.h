@@ -5,7 +5,7 @@ class CCone :
 	public CBody
 {
 public:
-	CCone(double radius, double height);
+	CCone(double density, double radius, double height);
 
 	double GetRadius() const;
 	double GetHeight() const;
