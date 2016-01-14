@@ -48,4 +48,16 @@ struct Cylinder_
 	{
 		BOOST_CHECK_CLOSE_FRACTION(static_cast<const CBody &>(cylinder).GetMass(), expectedVolume * expectedDensity, 1e-7);
 	}
+	// имеет строковое представление
+	BOOST_AUTO_TEST_CASE(can_be_converted_to_string)
+	{
+		const auto expectedString = R"(Cylinder:
+	density = 8.8
+	volume = 3685.449466
+	mass = 32431.9553
+	radius = 10.1
+	height = 11.5
+)";
+		BOOST_CHECK_EQUAL(static_cast<const CBody &>(cylinder).ToString(), expectedString);
+	}
 BOOST_AUTO_TEST_SUITE_END()
