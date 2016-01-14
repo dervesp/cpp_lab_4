@@ -5,13 +5,15 @@ class CParallelepiped final :
 	public CBody
 {
 public:
-	CParallelepiped(double width);
+	CParallelepiped(double length, double width);
 
+	double GetLength() const;
 	double GetWidth() const;
 	double GetVolume() const override;
 protected:
 	void AppendProperties(std::ostream & strm) const override;
 private:
 	double m_width;
+	double m_length;
 };
 

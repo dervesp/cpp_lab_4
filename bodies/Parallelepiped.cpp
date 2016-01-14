@@ -1,10 +1,16 @@
 #include "stdafx.h"
 #include "Parallelepiped.h"
 
-CParallelepiped::CParallelepiped(double width)
+CParallelepiped::CParallelepiped(double length, double width)
 	: CBody("Parallelepiped", 0),
+	m_length(length),
 	m_width(width)
 {
+}
+
+double CParallelepiped::GetLength() const
+{
+	return m_length;
 }
 
 double CParallelepiped::GetWidth() const
