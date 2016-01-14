@@ -43,4 +43,9 @@ BOOST_FIXTURE_TEST_SUITE(Cone, Cone_)
 	{
 		BOOST_CHECK_CLOSE_FRACTION(static_cast<const CBody &>(cone).GetVolume(), expectedVolume, 1e-7);
 	}
+	// имеет массу
+	BOOST_AUTO_TEST_CASE(has_a_mass)
+	{
+		BOOST_CHECK_CLOSE_FRACTION(static_cast<const CBody &>(cone).GetMass(), expectedVolume * expectedDensity, 1e-7);
+	}
 BOOST_AUTO_TEST_SUITE_END()
