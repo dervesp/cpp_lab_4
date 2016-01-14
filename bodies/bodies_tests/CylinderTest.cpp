@@ -10,6 +10,7 @@ struct Cylinder_
 	const double expectedRadius = 10.1;
 	const double expectedHeight = 11.5;
 	const double expectedDensity = 8.8;
+	const double expectedVolume = 3685.4494;
 	const CCylinder cylinder;
 	Cylinder_()
 		: cylinder(expectedDensity, expectedRadius, expectedHeight)
@@ -36,5 +37,10 @@ struct Cylinder_
 	BOOST_AUTO_TEST_CASE(has_a_density)
 	{
 		BOOST_CHECK_EQUAL(static_cast<const CBody &>(cylinder).GetDensity(), expectedDensity);
+	}
+	// טלווע מבתול
+	BOOST_AUTO_TEST_CASE(has_a_volume)
+	{
+		BOOST_CHECK_CLOSE_FRACTION(static_cast<const CBody &>(cylinder).GetVolume(), expectedVolume, 1e-7);
 	}
 BOOST_AUTO_TEST_SUITE_END()

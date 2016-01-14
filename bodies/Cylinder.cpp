@@ -21,7 +21,7 @@ double CCylinder::GetHeight() const
 
 double CCylinder::GetVolume() const
 {
-	return 0;
+	return (pow(m_radius, 2) * M_PI) * m_height;
 }
 
 void CCylinder::AppendProperties(std::ostream & strm) const
