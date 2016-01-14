@@ -9,9 +9,10 @@ struct Cylinder_
 {
 	const double expectedRadius = 10.1;
 	const double expectedHeight = 11.5;
+	const double expectedDensity = 8.8;
 	const CCylinder cylinder;
 	Cylinder_()
-		: cylinder(expectedRadius, expectedHeight)
+		: cylinder(expectedDensity, expectedRadius, expectedHeight)
 	{}
 };
 	// —фера
@@ -30,5 +31,10 @@ struct Cylinder_
 	BOOST_AUTO_TEST_CASE(has_a_height)
 	{
 		BOOST_CHECK_EQUAL(cylinder.GetHeight(), expectedHeight);
+	}
+	// имеет плотность
+	BOOST_AUTO_TEST_CASE(has_a_density)
+	{
+		BOOST_CHECK_EQUAL(static_cast<const CBody &>(cylinder).GetDensity(), expectedDensity);
 	}
 BOOST_AUTO_TEST_SUITE_END()

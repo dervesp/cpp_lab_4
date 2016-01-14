@@ -2,8 +2,8 @@
 #include "Cylinder.h"
 
 
-CCylinder::CCylinder(double radius, double height)
-	: CBody("Cylinder", 0),
+CCylinder::CCylinder(double density, double radius, double height)
+	: CBody("Cylinder", density),
 	m_radius(radius),
 	m_height(height)
 {
