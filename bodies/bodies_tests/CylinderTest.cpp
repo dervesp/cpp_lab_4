@@ -7,9 +7,10 @@
 
 struct Cylinder_
 {
+	const double expectedRadius = 10.1;
 	const CCylinder cylinder;
 	Cylinder_()
-		: cylinder()
+		: cylinder(expectedRadius)
 	{}
 };
 	// —фера
@@ -18,5 +19,10 @@ struct Cylinder_
 	BOOST_AUTO_TEST_CASE(is_a_body)
 	{
 		BOOST_CHECK(static_cast<const CBody*>(&cylinder));
+	}
+	// имеет радиус
+	BOOST_AUTO_TEST_CASE(has_a_radius)
+	{
+		BOOST_CHECK_EQUAL(cylinder.GetRadius(), expectedRadius);
 	}
 BOOST_AUTO_TEST_SUITE_END()

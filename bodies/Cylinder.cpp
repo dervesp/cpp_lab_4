@@ -2,12 +2,18 @@
 #include "Cylinder.h"
 
 
-CCylinder::CCylinder()
-	: CBody("Cylinder", 0)
+CCylinder::CCylinder(double radius)
+	: CBody("Cylinder", 0),
+	m_radius(radius)
 {
 }
 
-double CCylinder::GetVolume()const
+double CCylinder::GetRadius() const
+{
+	return m_radius;
+}
+
+double CCylinder::GetVolume() const
 {
 	return 0;
 }
