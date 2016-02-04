@@ -1,8 +1,8 @@
 #pragma once
-#include "Body.h"
+#include "SolidBody.h"
 
 class CCone :
-	public CBody
+	public CSolidBody
 {
 public:
 	CCone(double density, double radius, double height);

@@ -2,7 +2,7 @@
 #include "Parallelepiped.h"
 
 CParallelepiped::CParallelepiped(double density, double length, double width, double height)
-	: CBody("Parallelepiped", density),
+	: CSolidBody("Parallelepiped", density),
 	m_length(length),
 	m_width(width),
 	m_height(height)

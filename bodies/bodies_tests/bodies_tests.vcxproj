@@ -92,6 +92,7 @@
     <ClInclude Include="..\Cone.h" />
     <ClInclude Include="..\Cylinder.h" />
     <ClInclude Include="..\Parallelepiped.h" />
+    <ClInclude Include="..\SolidBody.h" />
     <ClInclude Include="..\Sphere.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -101,6 +102,7 @@
     <ClCompile Include="..\Cone.cpp" />
     <ClCompile Include="..\Cylinder.cpp" />
     <ClCompile Include="..\Parallelepiped.cpp" />
+    <ClCompile Include="..\SolidBody.cpp" />
     <ClCompile Include="..\Sphere.cpp" />
     <ClCompile Include="bodies_tests.cpp" />
     <ClCompile Include="ConeTest.cpp" />
