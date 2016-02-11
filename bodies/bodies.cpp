@@ -5,18 +5,14 @@
 #include "BodyBuilder.h"
 
 
-int _tmain(int argc, _TCHAR* argv[])
+void main()
 {
-    CBodyBuilder builder = CBodyBuilder();
-    while (std::cin)
-    {
-        std::shared_ptr<CBody> body = builder.CreateFromStream(std::cin);
-        if (body.use_count())
-        {
-            std::cout << body->ToString() << std::endl;
-        }
-    }
-    system("pause");
-	return 0;
+    CBodyBuilder builder = CBodyBuilder(std::cout);
+
+	std::string line;
+	while (std::getline(std::cin, line))
+	{
+		builder.ProcessLine(std::istringstream(line));
+	}
 }
 

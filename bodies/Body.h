@@ -1,4 +1,6 @@
 #pragma once
+
+
 class CBody
 {
 public:
@@ -15,3 +17,4 @@ protected:
 private:
 	std::string m_type;
 };
+typedef std::shared_ptr<CBody> BodyPtr;
